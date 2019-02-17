@@ -1,0 +1,49 @@
+Network
+Variables: D,I,G,L,S
+
+Var D
+Values: true, false
+Parents: none
+CPT:
+=true,0.4
+
+Var I
+Values: true, false
+Parents: none
+CPT:
+=true,0.3
+
+Var G
+Values: small, medium, large
+Parents: D,I
+CPT:
+true,true,=small,0.5,=medium,0.3
+true,false,=small,0.9,=medium,0.08
+false,true,=small,0.05,=medium,0.25
+false,false,=small,0.3,=medium,0.4
+
+Var L
+Values: true, false
+Parents: G
+CPT:
+small,=true,0.9
+medium,=true,0.6
+large,=true,0.01
+
+Var S
+Values: true, false
+Parents: I
+CPT:
+true,=true,0.8
+false,=true,0.05
+
+Queries
+P(L=true|I=true,D=true),1
+P(L=true|I=true,D=true),2
+P(L=true|I=true,D=true),3
+P(L=true|D=true),1
+P(L=true|D=true),2
+P(L=true|D=true),3
+P(G=medium|S=false),1
+P(G=medium|S=false),2
+P(G=medium|S=false),3

@@ -1,0 +1,46 @@
+Network
+Variables: A,B,C,D,E
+
+Var A
+Values: true, false
+Parents: none
+CPT:
+=true,0.6
+
+Var B
+Values: true, false
+Parents: A
+CPT:
+true,=true,0.2
+false,=true,0.75
+
+Var C
+Values: true, false
+Parents: A
+CPT:
+true,=true,0.8
+false,=true,0.1
+
+Var D
+Values: true, false
+Parents: B,C
+CPT:
+true,true,=true,0.95
+true,false,=true,0.9
+false,true,=true,0.8
+false,false,=true,0
+
+Var E
+Values: true, false
+Parents: C
+CPT:
+true,=true,0.7
+false,=true,0
+
+Queries
+P(D=true|A=true,B=false),1
+P(D=true|A=true,B=false),2
+P(D=true|A=true,B=false),3
+P(A=true|C=true),1
+P(A=true|C=true),2
+P(A=true|C=true),3
